@@ -118,6 +118,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\OrganizationBranch\Entry.cshtml" />
+    <Content Include="Views\Organization\GetAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />

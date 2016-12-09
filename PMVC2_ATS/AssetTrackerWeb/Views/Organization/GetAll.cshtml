@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AssetTracker.Core.Models.Organization>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAll</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <h2>Organizations</h2>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Organization Name</th>
+        <th>Organization Code</th>
+        <th>Organization Location</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Code</td>
+                <td>@item.Location</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</body>
+</html>

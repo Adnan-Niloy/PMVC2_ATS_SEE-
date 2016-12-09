@@ -27,5 +27,10 @@ namespace AssetTrackerWeb.Controllers
             return RedirectToAction("Entry", "Organization");
         }
 
+        public ActionResult GetAll()
+        {
+            var organizations = _manager.GetAll();
+            return View(organizations);
+        }
     }
 }
