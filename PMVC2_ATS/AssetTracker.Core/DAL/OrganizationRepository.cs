@@ -1,6 +1,9 @@
 ﻿using AssetTracker.Core.Context;
 using AssetTracker.Core.Models;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace AssetTracker.Core.DAL
 {
@@ -26,6 +29,11 @@ namespace AssetTracker.Core.DAL
             return rowAffected > 0;
         }
 
+        public IList<Organization> GetAll()
+        {
+            var organizations = _context.Organizations.Include(c => c.OrganizationBranches).ToList();
+            return organizations;
+        }
 
 
     }

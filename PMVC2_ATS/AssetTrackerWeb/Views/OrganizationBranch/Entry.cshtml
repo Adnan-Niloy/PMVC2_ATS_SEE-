@@ -1,0 +1,45 @@
+﻿@model AssetTrackerWeb.ViewModels.OrganizationBranchViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Entry</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron"></div>
+    <div>
+        @using (Html.BeginForm("Entry", "OrganizationBranch", new { @class = "form-inline" }))
+        {
+            <div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.OrganizationBranch.Name)
+                    @Html.TextBoxFor(m => m.OrganizationBranch.Name, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.OrganizationBranch.ShortName)
+                    @Html.TextBoxFor(m => m.OrganizationBranch.ShortName, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.OrganizationBranch.OrganizationId)
+                    @Html.DropDownListFor(m => m.OrganizationBranch.OrganizationId,
+                    new SelectList(Model.Organizations, "Id", "Name"),
+                    "Select Organization", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        }
+
+    </div>
+</body>
+</html>

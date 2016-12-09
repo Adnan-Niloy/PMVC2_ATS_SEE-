@@ -1,5 +1,6 @@
 ﻿using AssetTracker.Core.DAL;
 using AssetTracker.Core.Models;
+using System.Collections.Generic;
 
 namespace AssetTracker.Core.BLL
 {
@@ -16,6 +17,11 @@ namespace AssetTracker.Core.BLL
                 return false;
 
             return _repository.Add(organization);
+        }
+
+        public IList<Organization> GetAll()
+        {
+            return _repository.GetAll();
         }
     }
 }

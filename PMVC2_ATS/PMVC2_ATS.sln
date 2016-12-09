@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetTracker.Core", "AssetTracker.Core\AssetTracker.Core.csproj", "{B22DD946-1974-4FA5-9820-27CA1A7CC8E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetTrackerWeb", "AssetTrackerWeb\AssetTrackerWeb.csproj", "{7C141B49-D352-451C-B89E-553729E39856}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetTracker.Web", "AssetTrackerWeb\AssetTracker.Web.csproj", "{7C141B49-D352-451C-B89E-553729E39856}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,8 +9,7 @@ namespace AssetTracker.Core.BLL
 
         public bool Add(OrganizationBranch organizationBranch)
         {
-            if (organizationBranch.Organization != null && organizationBranch.Name != null &&
-                organizationBranch.ShortName != null)
+            if (organizationBranch.Name != null && organizationBranch.ShortName != null)
             {
                 return _repository.Add(organizationBranch);
             }
