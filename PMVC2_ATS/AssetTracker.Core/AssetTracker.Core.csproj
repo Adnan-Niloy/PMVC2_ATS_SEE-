@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\OrganizationBranchManager.cs" />
+    <Compile Include="BLL\OrganizationManager.cs" />
     <Compile Include="Context\AssetDBContext.cs" />
     <Compile Include="DAL\OrganizationBranchRepository.cs" />
     <Compile Include="DAL\OrganizationRepository.cs" />
@@ -56,9 +58,7 @@
     <Compile Include="Models\OrganizationBranch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

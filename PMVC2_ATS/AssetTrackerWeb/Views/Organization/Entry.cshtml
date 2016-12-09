@@ -1,0 +1,43 @@
+﻿@model AssetTracker.Core.Models.Organization
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Entry</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron"></div>
+<div>
+    @using (Html.BeginForm("Entry", "Organization", new {@class = "form-inline"}))
+    {        
+            <div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Code)
+                    @Html.TextBoxFor(m => m.Code, new {@class = "form-control"})
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Location)
+                    @Html.TextBoxFor(m => m.Location, new {@class = "form-control"})
+                </div>
+            </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    }
+   
+</div>
+</body>
+</html>
