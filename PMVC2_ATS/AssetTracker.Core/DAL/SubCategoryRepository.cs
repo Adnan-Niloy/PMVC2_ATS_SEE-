@@ -21,10 +21,11 @@ namespace AssetTracker.Core.DAL
 
         }
 
-        //public IList<SubCategory> GetAll()
-        //{
-
-        //}
+        public IList<SubCategory> GetAll()
+        {
+            var SubCategory = _context.SubCategories;
+            return SubCategory.ToList();
+        }
 
         public void Dispose()
         {

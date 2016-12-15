@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <div class="jumbotron">
+        <div class="jumbotron" style="height:10px">
             <h2>General Category Entry</h2>
 
         </div>
@@ -23,8 +23,8 @@
             <div class="col-md-12">
                 @using (Html.BeginForm("Entry", "GeneralCategory", new { @class = "form-inline" }))
                 {
-                    <div class="col-md-6">
-                        <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="col-md-12">
 
                             @Html.LabelFor(c => c.Name)
                             @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
@@ -38,7 +38,7 @@
                         </div>
                        
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -54,6 +54,8 @@
                                         <td>@item.Id</td>
                                         <td>@item.Name</td>
                                         <td>@item.Code</td>
+                                        <td><input type="button" value="Edit" class="btn-success" /></td>
+                                        <td><input type="button" value="Delete" class="btn-warning" /></td>
                                     </tr>
                                 }
                             </tbody>

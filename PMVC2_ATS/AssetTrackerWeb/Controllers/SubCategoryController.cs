@@ -17,23 +17,31 @@ namespace AssetTrackerWeb.Controllers
         // GET: SubCategory
         public ActionResult Entry()
         {
-           // var subCategory = _manager.GetAll();
-           
+            ViewBag._category = GetAll();
+            var category = _categoryManager.GetAll();
+            var generalCategory = _generalCategoryManager.GetAll();
+
+            var viewModel = new SubCategoryViewModel
+            {
+                SubCategory = new SubCategory(),
+                Category = category,
+                GeneralCategory = generalCategory
+            };
             
-            return View();
+            return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Entry(SubCategory subcategory)
         {
             var isAdded = _manager.Add(subcategory);
-            return View();
+            return RedirectToAction("Entry", "SubCategory");
         }
 
-        //public IList<SubCategory> GetAll()
-        //{
-        //    var subCategory = _manager.GetAll();
-        //    return subCategory.ToList();
-        //}
+        public IList<SubCategory> GetAll()
+        {
+            var subCategory = _manager.GetAll();
+            return subCategory.ToList();
+        }
     }
 }

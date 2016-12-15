@@ -14,19 +14,74 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="col-md-12">
+        <div class="jumbotron">
+            <h3>SubCategory Setup</h3>
+        </div>
+    </div>
     <div> 
         @using (Html.BeginForm("Entry", "SubCategory"))
         {
             <div class="row">
                 <div class="col-md-12">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
 
-                        @Html.LabelFor(c=>c.Category.GeneralCategoryId)
-                        @Html.DropDownListFor(c=>c.GeneralCategory.Id,
-                            new SelectList(Model.GeneralCategory,"Id","Name",
+                        @Html.LabelFor(c=>c.SubCategory.GeneralCategoryId)
+                        @Html.DropDownListFor(c=>c.SubCategory.GeneralCategoryId,
+                            new SelectList(Model.GeneralCategory, "Id","Name"),
                             "select General Category",new { @class = "form-control" })
-                        )
+                        
 
+                        @Html.LabelFor(c=>c.SubCategory.CategoryId)
+                        @Html.DropDownListFor(c=>c.SubCategory.CategoryId,
+                            new SelectList(Model.Category, "Id","Name"),
+                             "select Category",new { @class = "form-control"})
+                        
+                        @Html.LabelFor(c=>c.SubCategory.Name)
+                        @Html.TextBoxFor(c=>c.SubCategory.Name, new { @class= "form-control" })
+
+                        @Html.LabelFor(c=>c.SubCategory.Code)
+                        @Html.TextBoxFor(c=>c.SubCategory.Code, new { @class =  "form-control"})
+
+                        @Html.LabelFor(c=>c.SubCategory.Description)
+                        @Html.TextAreaFor(c=>c.SubCategory.Description, new { @class = "form-control" })
+
+
+                        <br />
+
+                        <button type="submit" class="btn-default">Submit</button>
+
+                    </div>
+
+                    <div class="col-lg-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Code</th>
+                                    <th>Description</th>
+                                    <th>General Category</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in ViewBag._category)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Code</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.GeneralCategoryId</td>
+                                        <td>@item.CategoryId</td>
+                                        <td><input type="button" value="Edit" class="btn-success"/></td>
+                                        <td><input type="button" value="Delete" class="btn-warning"/></td>
+                                    </tr>
+                                }
+                                <tr></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

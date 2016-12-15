@@ -20,7 +20,7 @@ namespace AssetTrackerWeb.Controllers
             var generalCategory = _generalCategoryManager.GetAll();
 
             var category = GetAll();
-                
+                            // for showing the general category name in table
                             //GetAll().Join(generalCategory,
                             //    c => c.GeneralCategoryId,
                             //    g => g.Id,

@@ -9,7 +9,7 @@ namespace AssetTrackerWeb.ViewModels
     public class SubCategoryViewModel
     {
         public SubCategory SubCategory { get; set; }
+        public ICollection<Category> Category { get; set; }
         public ICollection<GeneralCategory> GeneralCategory { get; set; }
-        public ICollection<Category> Category { get; set; } 
     }
 }
