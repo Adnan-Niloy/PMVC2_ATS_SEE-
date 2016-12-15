@@ -14,6 +14,7 @@ namespace AssetTrackerWeb.Controllers
         {
             var organizations = _manager.GetAll();
 
+
             var viewModel = new OrganizationBranchViewModel
             {
                 Organizations = organizations,

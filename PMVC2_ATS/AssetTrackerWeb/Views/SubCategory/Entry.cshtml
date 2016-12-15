@@ -1,0 +1,36 @@
+﻿@model AssetTrackerWeb.ViewModels.SubCategoryViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Subcategory Setup</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Entry", "SubCategory"))
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+
+                        @Html.LabelFor(c=>c.Category.GeneralCategoryId)
+                        @Html.DropDownListFor(c=>c.GeneralCategory.Id,
+                            new SelectList(Model.GeneralCategory,"Id","Name",
+                            "select General Category",new { @class = "form-control" })
+                        )
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

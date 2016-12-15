@@ -49,13 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CategoryManager.cs" />
+    <Compile Include="BLL\GeneralCategoryManager.cs" />
+    <Compile Include="BLL\ModelRadioManager.cs" />
     <Compile Include="BLL\OrganizationBranchManager.cs" />
     <Compile Include="BLL\OrganizationManager.cs" />
+    <Compile Include="BLL\SubCategoryManager.cs" />
     <Compile Include="Context\AssetDBContext.cs" />
+    <Compile Include="DAL\CategoryRepository.cs" />
+    <Compile Include="DAL\GeneralCategoryRepository.cs" />
+    <Compile Include="DAL\ModelRadioRepository.cs" />
     <Compile Include="DAL\OrganizationBranchRepository.cs" />
     <Compile Include="DAL\OrganizationRepository.cs" />
+    <Compile Include="DAL\SubCategoryRepository.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\GeneralCategory.cs" />
+    <Compile Include="Models\ModelForRadio.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\OrganizationBranch.cs" />
+    <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

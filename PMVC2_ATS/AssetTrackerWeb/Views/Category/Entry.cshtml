@@ -1,0 +1,82 @@
+﻿@model AssetTrackerWeb.ViewModels.CategoryViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Category Setup</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="jumbotron"> 
+        <h3>Category Setup</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            @using (Html.BeginForm("Entry", "Category"))
+            {
+                <div class="col-md-6">
+                    <div class="col-md-12">
+
+                        @Html.LabelFor( c=> c.Category.GeneralCategoryId)
+                        @Html.DropDownListFor( c=> c.Category.GeneralCategoryId,
+                            new SelectList(Model.GeneralCategories,"Id","Name"),
+                            "Select General Categories", new { @class = "form-control" })
+
+                        @Html.LabelFor(c => c.Category.Name)
+                        @Html.TextBoxFor(c => c.Category.Name, new { @class = "form-control" })
+
+                        @Html.LabelFor(c=> c.Category.Code)
+                        @Html.TextBoxFor(c => c.Category.Code, new { @class = "form-control" })
+
+                        @Html.LabelFor( c => c.Category.Description)
+                        @Html.TextAreaFor( c=> c.Category.Description, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6">
+                        <br />
+                        <button type="submit" class="btn-primary">Submit</button>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Code</th>
+                                <th>Description</th>
+                                <th>General Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in ViewBag.allCategory)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Code</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.GeneralCategoryId</td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+                
+            }
+
+        </div>
+    </div>
+</body>
+</html>

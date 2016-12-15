@@ -12,6 +12,8 @@ namespace AssetTracker.Core.Context
 
         public DbSet<Organization> Organizations { get; set; }
         public DbSet<OrganizationBranch> OrganizationBranches { get; set; }
-
+        public DbSet<GeneralCategory> GeneralCategories { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
     }
 }

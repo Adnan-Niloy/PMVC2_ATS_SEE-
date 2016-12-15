@@ -1,0 +1,68 @@
+﻿@model AssetTracker.Core.Models.GeneralCategory
+    @{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Entry</title>
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="jumbotron">
+            <h2>General Category Entry</h2>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Entry", "GeneralCategory", new { @class = "form-inline" }))
+                {
+                    <div class="col-md-6">
+                        <div class="col-md-6">
+
+                            @Html.LabelFor(c => c.Name)
+                            @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+
+
+                            @Html.LabelFor(c => c.Code)
+                            @Html.TextBoxFor(c => c.Code, new { @class = "form-control" })
+
+                            <br />
+                            <button type="submit" class="btn-primary">Save</button>
+                        </div>
+                       
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.ModelGeneralCategory)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Code</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    </body>
+</html>
