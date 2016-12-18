@@ -1,6 +1,6 @@
-﻿@model AssetTrackerWeb.ViewModels.CategoryViewModel
-
+﻿@model AssetTracker.Core.Models.Vendor
 @{
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -23,29 +23,31 @@
 
                 <h1>.</h1>
                 <h1>.</h1>
-                <h2><b><i> CATEGORY</i></b></h2>
+                <h2><b><i> Vendor Setup</i></b></h2>
             </div>
         </div>
         <div class="col-md-12">
 
-            @using (Html.BeginForm("Entry", "Category"))
+            @using (Html.BeginForm("Index", "Vendor"))
             {
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="col-md-12">
 
-                        @Html.LabelFor( c=> c.Category.GeneralCategoryId)
-                        @Html.DropDownListFor( c=> c.Category.GeneralCategoryId,
-                            new SelectList(Model.GeneralCategories,"Id","Name"),
-                            "Select General Categories", new { @class = "form-control" })
+                        @Html.LabelFor(c => c.Name)
+                        @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
 
-                        @Html.LabelFor(c => c.Category.Name)
-                        @Html.TextBoxFor(c => c.Category.Name, new { @class = "form-control" })
+                        @Html.LabelFor(c => c.Contact)
+                        @Html.TextAreaFor(c => c.Contact, new { @class = "form-control" })
 
-                        @Html.LabelFor(c=> c.Category.Code)
-                        @Html.TextBoxFor(c => c.Category.Code, new { @class = "form-control" })
+                        @Html.LabelFor(c => c.Email)
+                        @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
 
-                        @Html.LabelFor( c => c.Category.Description)
-                        @Html.TextAreaFor( c=> c.Category.Description, new { @class = "form-control" })
+                        @Html.LabelFor(c => c.Address)
+                        @Html.TextAreaFor(c => c.Address, new { @class = "form-control" })
+
+                        @Html.LabelFor(c => c.Status)
+                        @Html.CheckBoxFor(c => c.Status)
+
                     </div>
                     <div class="col-md-6">
                         <br />
@@ -53,26 +55,28 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Code</th>
-                                <th>Description</th>
-                                <th>General Category</th>
+                                <th>Contact</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach(var item in ViewBag.allCategory)
+                            @foreach (var item in ViewBag.Vendor)
                             {
                                 <tr>
                                     <td>@item.Id</td>
                                     <td>@item.Name</td>
-                                    <td>@item.Code</td>
-                                    <td>@item.Description</td>
-                                    <td>@item.GeneralCategoryId</td>
+                                    <td>@item.Contact</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Status</td>
                                     <td><input type="button" value="Edit" class="btn-success" /></td>
                                     <td><input type="button" value="Delete" class="btn-warning" /></td>
                                 </tr>
@@ -81,7 +85,7 @@
 
                     </table>
                 </div>
-                
+
             }
 
         </div>
@@ -101,3 +105,6 @@
 
 </body>
 </html>
+
+
+

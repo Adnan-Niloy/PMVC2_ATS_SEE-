@@ -55,6 +55,7 @@
     <Compile Include="BLL\OrganizationBranchManager.cs" />
     <Compile Include="BLL\OrganizationManager.cs" />
     <Compile Include="BLL\SubCategoryManager.cs" />
+    <Compile Include="BLL\VendorManager.cs" />
     <Compile Include="Context\AssetDBContext.cs" />
     <Compile Include="DAL\CategoryRepository.cs" />
     <Compile Include="DAL\GeneralCategoryRepository.cs" />
@@ -62,18 +63,38 @@
     <Compile Include="DAL\OrganizationBranchRepository.cs" />
     <Compile Include="DAL\OrganizationRepository.cs" />
     <Compile Include="DAL\SubCategoryRepository.cs" />
+    <Compile Include="DAL\VendorRepository.cs" />
     <Compile Include="Migrations\201612181010122_AssetDbContext.cs" />
     <Compile Include="Migrations\201612181010122_AssetDbContext.Designer.cs">
       <DependentUpon>201612181010122_AssetDbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612181618392_AssetDbContext1.cs" />
+    <Compile Include="Migrations\201612181618392_AssetDbContext1.Designer.cs">
+      <DependentUpon>201612181618392_AssetDbContext1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181720452_AssetDbContext2.cs" />
+    <Compile Include="Migrations\201612181720452_AssetDbContext2.Designer.cs">
+      <DependentUpon>201612181720452_AssetDbContext2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181725540_AssetDbContext3.cs" />
+    <Compile Include="Migrations\201612181725540_AssetDbContext3.Designer.cs">
+      <DependentUpon>201612181725540_AssetDbContext3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181753067_AssetDbContext4.cs" />
+    <Compile Include="Migrations\201612181753067_AssetDbContext4.Designer.cs">
+      <DependentUpon>201612181753067_AssetDbContext4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\GeneralCategory.cs" />
     <Compile Include="Models\ModelForRadio.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\OrganizationBranch.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\SubCategory.cs" />
+    <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +104,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612181010122_AssetDbContext.resx">
       <DependentUpon>201612181010122_AssetDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181618392_AssetDbContext1.resx">
+      <DependentUpon>201612181618392_AssetDbContext1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181720452_AssetDbContext2.resx">
+      <DependentUpon>201612181720452_AssetDbContext2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181725540_AssetDbContext3.resx">
+      <DependentUpon>201612181725540_AssetDbContext3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181753067_AssetDbContext4.resx">
+      <DependentUpon>201612181753067_AssetDbContext4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
