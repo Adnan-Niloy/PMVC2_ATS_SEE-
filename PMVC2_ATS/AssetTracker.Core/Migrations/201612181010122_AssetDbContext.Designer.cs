@@ -7,13 +7,13 @@ namespace AssetTracker.Core.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Assetdbcontext : IMigrationMetadata
+    public sealed partial class AssetDbContext : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Assetdbcontext));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AssetDbContext));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612160609257_Assetdbcontext"; }
+            get { return "201612181010122_AssetDbContext"; }
         }
         
         string IMigrationMetadata.Source

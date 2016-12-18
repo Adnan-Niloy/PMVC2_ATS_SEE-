@@ -21,14 +21,9 @@ namespace AssetTrackerWeb.Controllers
             var category = _categoryManager.GetAll();
             var generalCategory = _generalCategoryManager.GetAll();
 
-            var viewModel = new SubCategoryViewModel
-            {
-                SubCategory = new SubCategory(),
-                Category = category,
-                GeneralCategory = generalCategory
-            };
-            
-            return View(viewModel);
+            ViewBag.GeneralCategory = generalCategory;
+
+            return View();
         }
 
         [HttpPost]
@@ -42,6 +37,22 @@ namespace AssetTrackerWeb.Controllers
         {
             var subCategory = _manager.GetAll();
             return subCategory.ToList();
+        }
+
+        public ActionResult GetByGeneralCategoryId(int? GeneralCategoryId)
+        {
+            if(GeneralCategoryId == null)
+            {
+                return null;
+            }
+            var category = _categoryManager.GetByGeneralCategoryId(GeneralCategoryId).Select
+                (
+                    c => new
+                    {
+                        c.Id,c.Name,c.Code,c.GeneralCategoryId
+                    }
+                );
+            return Json(category, JsonRequestBehavior.AllowGet);
         }
     }
 }

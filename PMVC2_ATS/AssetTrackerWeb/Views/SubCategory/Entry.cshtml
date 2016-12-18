@@ -1,55 +1,54 @@
-﻿@model AssetTrackerWeb.ViewModels.SubCategoryViewModel
+﻿@model AssetTracker.Core.Models.SubCategory
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
+
     <meta name="viewport" content="width=device-width" />
     <title>Subcategory Setup</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-</head>
-<body>
-    <div class="col-md-12">
-        <div class="jumbotron">
-            <h3>SubCategory Setup</h3>
-        </div>
-    </div>
+
+
     <div> 
+        <div class="">
+
+            <h1>.</h1>
+            <h1>.</h1>
+            <h2><b><i> SUBCATEGORY</i></b></h2>
+        </div>
         @using (Html.BeginForm("Entry", "SubCategory"))
         {
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-4">
 
-                        @Html.LabelFor(c=>c.SubCategory.GeneralCategoryId)
-                        @Html.DropDownListFor(c=>c.SubCategory.GeneralCategoryId,
-                            new SelectList(Model.GeneralCategory, "Id","Name"),
-                            "select General Category",new { @class = "form-control" })
+                        @Html.Label("General Category")
+                        @Html.DropDownList("GeneralCategoryId", new SelectList(ViewBag.GeneralCategory, "Id", "Name"),
+                         "Select General Category", new { @class = "form-control" })
                         
 
-                        @Html.LabelFor(c=>c.SubCategory.CategoryId)
-                        @Html.DropDownListFor(c=>c.SubCategory.CategoryId,
-                            new SelectList(Model.Category, "Id","Name"),
-                             "select Category",new { @class = "form-control"})
+                        @Html.Label("Category")
+                        @Html.DropDownListFor(c => c.CategoryId,
+                          new SelectList ( new SelectListItem[] { new SelectListItem() { Value="",Text="Select..." }},
+                             "Value","Text"), new { @class = "form-control" })
                         
-                        @Html.LabelFor(c=>c.SubCategory.Name)
-                        @Html.TextBoxFor(c=>c.SubCategory.Name, new { @class= "form-control" })
+                        @Html.LabelFor(c=>c.Name)
+                        @Html.TextBoxFor(c=>c.Name, new { @class= "form-control" })
 
-                        @Html.LabelFor(c=>c.SubCategory.Code)
-                        @Html.TextBoxFor(c=>c.SubCategory.Code, new { @class =  "form-control"})
+                        @Html.LabelFor(c=>c.Code)
+                        @Html.TextBoxFor(c=>c.Code, new { @class =  "form-control"})
 
-                        @Html.LabelFor(c=>c.SubCategory.Description)
-                        @Html.TextAreaFor(c=>c.SubCategory.Description, new { @class = "form-control" })
+                        @Html.LabelFor(c=>c.Description)
+                        @Html.TextAreaFor(c=>c.Description, new { @class = "form-control" })
 
 
                         <br />
 
-                        <button type="submit" class="btn-default">Submit</button>
+                        <button type="submit" class="btn-primary">Submit</button>
 
                     </div>
 
@@ -61,7 +60,7 @@
                                     <th>Name</th>
                                     <th>Code</th>
                                     <th>Description</th>
-                                    <th>General Category</th>
+
                                     <th>Category</th>
                                 </tr>
                             </thead>
@@ -73,7 +72,7 @@
                                         <td>@item.Name</td>
                                         <td>@item.Code</td>
                                         <td>@item.Description</td>
-                                        <td>@item.GeneralCategoryId</td>
+                                    
                                         <td>@item.CategoryId</td>
                                         <td><input type="button" value="Edit" class="btn-success"/></td>
                                         <td><input type="button" value="Delete" class="btn-warning"/></td>
@@ -86,6 +85,51 @@
                 </div>
             </div>
         }
+
+         <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Asset/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="~/Asset/js/jquery-1.12.1.min.js"></script>
+        <!-- jQuery REVOLUTION Slider -->
+        <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+        <script src="~/Asset/js/bootstrap.min.js"></script>
+        <script src="Scripts/jquery.validate.min.js"></script>
+        <script src="Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <!-- jQuery REVOLUTION Slider JvacriptCode -->
+
+        <script type="text/javascript">
+
+     $("#GeneralCategoryId").change(function () {
+         var _generalCategoryId = $("#GeneralCategoryId").val();
+         var jsonData = { GeneralCategoryId: _generalCategoryId };
+         $.ajax({
+             url: "/SubCategory/GetByGeneralCategoryId",
+             data: JSON.stringify(jsonData),
+             contentType: "application/json",
+             method: "POST",
+             success: function (response) {
+
+                 var GeneralCategory = response;
+                 $("#CategoryId").empty();
+
+                 var blankOption = "<option value=''>Select...</option>";
+                 $("#CategoryId").append(blankOption);
+
+                 $.each(GeneralCategory, function (key, value) {
+                     var option = "<option value='" + value.Id + "'>" + value.Name + "</option>";
+                     $("#CategoryId").append(option);
+                 });
+
+             },
+             error: function (response) {
+                 alert("Data is not available");
+             }
+
+         });
+     });
+        </script>
     </div>
-</body>
-</html>
+
+

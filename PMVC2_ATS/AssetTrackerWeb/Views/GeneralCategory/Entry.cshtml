@@ -1,6 +1,6 @@
 ﻿@model AssetTracker.Core.Models.GeneralCategory
     @{
-        Layout = null;
+        Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
     <!DOCTYPE html>
@@ -15,12 +15,15 @@
     </head>
 
     <body>
-        <div class="jumbotron" style="height:10px">
-            <h2>General Category Entry</h2>
-
-        </div>
+       
         <div class="row">
             <div class="col-md-12">
+                <div class="">
+
+                    <h1>.</h1>
+                    <h1>.</h1>
+                    <h2><b><i>GENERAL CATEGORY</i></b></h2>
+                </div>
                 @using (Html.BeginForm("Entry", "GeneralCategory", new { @class = "form-inline" }))
                 {
                     <div class="col-md-4">
@@ -66,5 +69,17 @@
             </div>
 
         </div>
+
+        <script src="~/Asset/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="~/Asset/js/jquery-1.12.1.min.js"></script>
+        <!-- jQuery REVOLUTION Slider -->
+        <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+        <script src="~/Asset/js/bootstrap.min.js"></script>
+        <script src="Scripts/jquery.validate.min.js"></script>
+        <script src="Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <!-- jQuery REVOLUTION Slider JvacriptCode -->
     </body>
 </html>

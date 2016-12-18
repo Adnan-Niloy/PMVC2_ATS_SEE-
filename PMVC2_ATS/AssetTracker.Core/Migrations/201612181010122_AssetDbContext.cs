@@ -3,7 +3,7 @@ namespace AssetTracker.Core.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Assetdbcontext : DbMigration
+    public partial class AssetDbContext : DbMigration
     {
         public override void Up()
         {
@@ -63,7 +63,6 @@ namespace AssetTracker.Core.Migrations
                         Name = c.String(),
                         Code = c.String(),
                         Description = c.String(),
-                        GeneralCategoryId = c.Int(nullable: false),
                         CategoryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

@@ -62,9 +62,9 @@
     <Compile Include="DAL\OrganizationBranchRepository.cs" />
     <Compile Include="DAL\OrganizationRepository.cs" />
     <Compile Include="DAL\SubCategoryRepository.cs" />
-    <Compile Include="Migrations\201612160609257_Assetdbcontext.cs" />
-    <Compile Include="Migrations\201612160609257_Assetdbcontext.Designer.cs">
-      <DependentUpon>201612160609257_Assetdbcontext.cs</DependentUpon>
+    <Compile Include="Migrations\201612181010122_AssetDbContext.cs" />
+    <Compile Include="Migrations\201612181010122_AssetDbContext.Designer.cs">
+      <DependentUpon>201612181010122_AssetDbContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -72,17 +72,18 @@
     <Compile Include="Models\ModelForRadio.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\OrganizationBranch.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612160609257_Assetdbcontext.resx">
-      <DependentUpon>201612160609257_Assetdbcontext.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612181010122_AssetDbContext.resx">
+      <DependentUpon>201612181010122_AssetDbContext.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -127,6 +127,7 @@
     <Content Include="Asset\js\bootstrap.js" />
     <Content Include="Asset\js\bootstrap.min.js" />
     <Content Include="Asset\js\jquery-1.12.1.min.js" />
+    <Content Include="Asset\js\jquery.min.js" />
     <Content Include="Asset\js\npm.js" />
     <Content Include="Asset\rs-plugin\assets\arrowleft.png" />
     <Content Include="Asset\rs-plugin\assets\arrowright.png" />

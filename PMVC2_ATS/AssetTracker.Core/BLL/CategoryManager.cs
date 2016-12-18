@@ -22,5 +22,15 @@ namespace AssetTracker.Core.BLL
         {
             return _repository.GetAll();
         }
+
+        public List<Category> GetByGeneralCategoryId(int? generalCategoryId)
+        {
+            if(generalCategoryId == null)
+            {
+                return null;
+            }
+
+            return _repository.GetByGeneralCategoryId(generalCategoryId);
+        }
     }
 }

@@ -25,6 +25,11 @@ namespace AssetTracker.Core.DAL
             return category;
         }
 
+        internal List<Category> GetByGeneralCategoryId(int? generalCategoryId)
+        {
+            return _context.Categories.Where(c=>c.GeneralCategoryId==generalCategoryId).ToList();
+        }
+
         public void Dispose()
         {
             throw new NotImplementedException();

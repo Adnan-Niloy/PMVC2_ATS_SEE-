@@ -8,15 +8,14 @@ namespace AssetTracker.Core.Models
 {
     public class SubCategory
     {
-        public int Id { get; set; }
+        public int    Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
 
-        public int GeneralCategoryId { get; set; }
         public int CategoryId { get; set; }
 
-        public Category Categories { get; set; }
-       // public GeneralCategory GeneralCategories { get; set; }
+        public Category Category { get; set; }
+
     }
 }

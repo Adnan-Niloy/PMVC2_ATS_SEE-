@@ -1,7 +1,7 @@
 ﻿@model AssetTrackerWeb.ViewModels.CategoryViewModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -16,10 +16,16 @@
 
 </head>
 <body>
-    <div class="jumbotron"> 
-        <h3>Category Setup</h3>
-    </div>
+
     <div class="row">
+        <div class="col-md-12">
+            <div class="">
+
+                <h1>.</h1>
+                <h1>.</h1>
+                <h2><b><i> CATEGORY</i></b></h2>
+            </div>
+        </div>
         <div class="col-md-12">
 
             @using (Html.BeginForm("Entry", "Category"))
@@ -80,5 +86,16 @@
 
         </div>
     </div>
-</body>
-</html>
+
+    <script src="~/Asset/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="~/Asset/js/jquery-1.12.1.min.js"></script>
+    <!-- jQuery REVOLUTION Slider -->
+    <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <script src="~/Asset/js/bootstrap.min.js"></script>
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <!-- jQuery REVOLUTION Slider JvacriptCode -->
+
