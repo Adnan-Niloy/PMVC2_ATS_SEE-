@@ -13,7 +13,7 @@ namespace AssetTracker.Core.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201612191051391_AssetDbContext"; }
+            get { return "201612191518209_AssetDbContext"; }
         }
         
         string IMigrationMetadata.Source

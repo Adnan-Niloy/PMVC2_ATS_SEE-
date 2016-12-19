@@ -66,9 +66,9 @@
     <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="DAL\SubCategoryRepository.cs" />
     <Compile Include="DAL\VendorRepository.cs" />
-    <Compile Include="Migrations\201612191051391_AssetDbContext.cs" />
-    <Compile Include="Migrations\201612191051391_AssetDbContext.Designer.cs">
-      <DependentUpon>201612191051391_AssetDbContext.cs</DependentUpon>
+    <Compile Include="Migrations\201612191518209_AssetDbContext.cs" />
+    <Compile Include="Migrations\201612191518209_AssetDbContext.Designer.cs">
+      <DependentUpon>201612191518209_AssetDbContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -79,6 +79,9 @@
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\OrganizationBranch.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\PurchaseFile.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
+    <Compile Include="Models\PurchaseOrderLine.cs" />
     <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,8 +91,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612191051391_AssetDbContext.resx">
-      <DependentUpon>201612191051391_AssetDbContext.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612191518209_AssetDbContext.resx">
+      <DependentUpon>201612191518209_AssetDbContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
