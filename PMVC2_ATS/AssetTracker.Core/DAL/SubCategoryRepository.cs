@@ -27,6 +27,12 @@ namespace AssetTracker.Core.DAL
             return SubCategory.ToList();
         }
 
+        internal IList<SubCategory> GetByCategoryId(int? categoryId)
+        {
+            var SubCategory = _context.SubCategories.Where(c=>c.CategoryId==categoryId);
+            return SubCategory.ToList() ;
+        }
+
         public void Dispose()
         {
             throw new NotImplementedException();

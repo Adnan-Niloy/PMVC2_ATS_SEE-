@@ -1,0 +1,140 @@
+﻿@model AssetTracker.Core.Models.Product
+@{
+    ViewBag.Title = "Index";
+}
+
+<html>
+
+<head></head>
+
+<body>
+      <div>
+          <div class="">
+              <h1>.</h1>
+              <h1>.</h1>
+              <h2><b><i> PRODUCT SETUP</i></b></h2>
+          </div>
+          @using (Html.BeginForm("Index", "Product"))
+          {
+              <div class="row">
+                  <div class="col-md-12">
+                        <div class="col-md-4">
+                                @Html.Label("General Category")
+                                @Html.DropDownList("GeneralCategoryId", new SelectList(ViewBag.GeneralCategory,"Id","Name"),
+                                "Select General Category",new { @class= "form-control" })
+
+                                @Html.Label("Category")
+                                @Html.DropDownList( "CategoryId",
+                                new SelectList( new SelectListItem[] { new SelectListItem() {Value="",Text="Select Category" }},
+                                "Value","Text"),new { @class="form-control" })
+                                
+                                @Html.Label("SubCategory")
+                                @Html.DropDownList("SubCategoryId",
+                                    new SelectList(new SelectListItem[] { new SelectListItem() { Value="",Text="Select Subcategory" } },
+                                    "Value","Text"), new {@class = "form-control"}
+                                )
+
+                                @Html.LabelFor(c=>c.Name)
+                                @Html.TextBoxFor(c=>c.Name, new { @class = "form-control" })
+
+                                @Html.LabelFor(c=>c.Code)
+                                @Html.TextBoxFor(c=>c.Code, new { @class = "form-control" })
+
+                                @Html.LabelFor(c=>c.Description)
+                                @Html.TextBoxFor(c=>c.Description ,new { @class = "form-control" })
+
+                             
+
+                                @Html.LabelFor(c=>c.Status)
+                                @Html.CheckBoxFor(c=>c.Status)
+                                <br/>
+                                <button class="btn-primary" >Submit</button>
+                        </div>
+
+                        <div class="col-md-8">
+                            <table class="table" id="_productTable">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Code</th>
+                                        <th>Description</th>
+                                        <th>SubCategory</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var item in ViewBag.Product)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Code</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.SubCategoryId</td>
+                                            <td>@item.Status</td>
+                                            <td><input type="button" value="Edit" class="btn-success" /></td>
+                                            <td><input type="button" value="Delete" class="btn-warning" /></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                  </div>
+              </div>
+          }
+
+      </div>
+        
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Asset/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="~/Asset/js/jquery-1.12.1.min.js"></script>
+    <!-- jQuery REVOLUTION Slider -->
+    <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <script src="~/Asset/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/_ajax.js"></script>
+    <!-- jQuery REVOLUTION Slider JvacriptCode -->
+
+    <script type="text/javascript">
+
+    
+
+     $("#GeneralCategoryId").change(function () {
+       
+         var jsonData = JSON.stringify({ GeneralCategoryId: $("#GeneralCategoryId").val() });
+         new __ajax()._FetchDropDown(CategoryDropDown, "/Product/GetByGeneralCategoryId", jsonData);
+     });
+
+     $("#CategoryId").change(function () {
+         var jsonDate = JSON.stringify({ CategoryId: $("#CategoryId").val() });
+         new __ajax()._FetchDropDown(SubCategoryDropDown, "/Product/GetByCategoryId", jsonDate);
+     });
+
+     var CategoryDropDown = function(_data){
+         DropDown(_data, "#CategoryId");
+     }
+
+     var SubCategoryDropDown = function (_data) {
+         DropDown(_data, "#SubCategoryId");
+     }
+
+     var DropDown = function (_data, _controlId) {
+         $(_controlId).empty();
+         var blankOption = "<option value=''>Select SubCategory..</option>";
+         $(_controlId).append(blankOption);
+
+         $.each(_data, function (key, value) {
+             var option = "<option value='" + value.Id + "'>" + value.Name + "</option>";
+             $(_controlId).append(option);
+         });
+     }
+  </script>
+
+
+</body>
+</html>
