@@ -1,0 +1,49 @@
+﻿
+
+@model AssetTracker.Core.Models.PurchaseOrderDetail
+
+<h2>Purchase Order Line </h2>
+
+@using (Html.BeginForm("Create", "PurchaseOrderModel"))
+{
+    <div class="col-md-12">
+                
+        <div class="col-md-2">
+
+            @Html.Label("Product List")
+            @Html.DropDownList("ProductId", new SelectList(ViewBag.Product, "Id", "Name"), "Select Product", new { @class = "form-control" })
+
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Unit Price")
+            @Html.TextBoxFor(c => c.UnitPrice, new { @class = "form-control" })
+        </div>
+        <div class="col-md-1">
+            @Html.Label("Qty")
+            @Html.TextBoxFor(c => c.Qty, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Total Price")
+            @Html.TextBoxFor(c => c.TotalPrice, new { @class = "form-control" })
+        </div>
+        <div class="col-md-1">
+            @Html.Label("Warranty")
+            @Html.TextBoxFor(c => c.WarrantyPeriod, new { @class = "form-control" })
+        </div>
+        <div class="col-md-1">
+            @Html.Label("Serial")
+            @Html.TextBoxFor(c => c.Serial, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Description")
+            @Html.TextAreaFor(c => c.Description, new { @class = "form-control" })
+        </div>
+        <div class="col-md-1">
+             @Html.Label("Op")
+             <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+

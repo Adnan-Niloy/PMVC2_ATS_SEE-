@@ -9,6 +9,7 @@ namespace AssetTracker.Core.Models
 {
     public class PurchaseOrder
     {
+        [Key]
         public int Id { get; set; }
         public string ReferenceName { get; set; }
         [DataType(DataType.Date)]
@@ -16,11 +17,10 @@ namespace AssetTracker.Core.Models
         public int VendorId { get; set; }
         public int EmployeeId { get; set; }
 
-
         public virtual Vendor Vendor { get; set; }
         public virtual Employee Employee { get; set; }
 
         public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
-        public virtual ICollection<PurchaseFile> PurchaseFiles { get; set; }
+        //public virtual ICollection<PurchaseFile> PurchaseFiles { get; set; }
     }
 }

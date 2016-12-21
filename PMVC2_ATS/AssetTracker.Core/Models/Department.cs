@@ -11,8 +11,6 @@ namespace AssetTracker.Core.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
-        public int BranchId { get; set; }
 
-        public OrganizationBranch Branch { get; set; }
     }
 }

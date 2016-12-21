@@ -66,9 +66,13 @@
     <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="DAL\SubCategoryRepository.cs" />
     <Compile Include="DAL\VendorRepository.cs" />
-    <Compile Include="Migrations\201612191518209_AssetDbContext.cs" />
-    <Compile Include="Migrations\201612191518209_AssetDbContext.Designer.cs">
-      <DependentUpon>201612191518209_AssetDbContext.cs</DependentUpon>
+    <Compile Include="Migrations\201612200332026_AssetDbContext.cs" />
+    <Compile Include="Migrations\201612200332026_AssetDbContext.Designer.cs">
+      <DependentUpon>201612200332026_AssetDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612210627313_AssetDbContext1.cs" />
+    <Compile Include="Migrations\201612210627313_AssetDbContext1.Designer.cs">
+      <DependentUpon>201612210627313_AssetDbContext1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -81,7 +85,8 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\PurchaseFile.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />
-    <Compile Include="Models\PurchaseOrderLine.cs" />
+    <Compile Include="Models\PurchaseOrderDetail.cs" />
+    <Compile Include="Models\PurchaseOrderModel.cs" />
     <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,8 +96,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612191518209_AssetDbContext.resx">
-      <DependentUpon>201612191518209_AssetDbContext.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612200332026_AssetDbContext.resx">
+      <DependentUpon>201612200332026_AssetDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612210627313_AssetDbContext1.resx">
+      <DependentUpon>201612210627313_AssetDbContext1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

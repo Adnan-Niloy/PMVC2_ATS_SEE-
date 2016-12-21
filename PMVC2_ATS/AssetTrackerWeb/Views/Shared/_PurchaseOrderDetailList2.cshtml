@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<AssetTracker.Core.Models.PurchaseOrderDetail>
+
+@using (Html.BeginForm("PurchaseOrderDetail"))
+{
+    <table class="table">
+        <tr>
+            <th>Product Id</th>
+            <th>Unit Price</th>
+            <th>Qty</th>
+            <th>Total Price</th>
+            <th>Warranty</th>
+            <th>Serial</th>
+            <th>Description</th>
+        </tr>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(c => p.ProductId)</td>
+                <td>@Html.DisplayFor(c => p.UnitPrice)</td>
+                <td>@Html.DisplayFor(c => p.Qty)</td>
+                <td>@Html.DisplayFor(c => p.TotalPrice)</td>
+                <td>@Html.DisplayFor(c => p.WarrantyPeriod)</td>
+                <td>@Html.DisplayFor(c => p.Serial)</td>
+                <td>@Html.DisplayFor(c => p.Description)</td>
+
+                <td><input type="submit" formaction="/PurchaseOrderDetail/Edit/@p.Id" value="Edit" class="btn-primary" /></td>
+                <td><input type="submit" formaction="/PurchaseOrderDetail/Delete/@p.Id" value="Delete" class="btn-danger" /></td>
+            </tr>
+        }
+    </table>
+}
+

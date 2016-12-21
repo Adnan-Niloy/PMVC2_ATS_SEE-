@@ -1,0 +1,114 @@
+﻿@model AssetTracker.Core.Models.PurchaseOrderModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Purchase Order</h2>
+<div class="jumbotron"></div>
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Index", "PurchaseOrderModel"))
+        {
+            <div class="col-md-12">
+                <div class="col-md-2">
+                    @Html.Label("Vendor")
+                    @Html.DropDownList("VendorId", new SelectList(ViewBag.Vendor, "Id", "Name"), "Select Vendor", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.Label("Reference")
+                    @Html.TextBoxFor(c => c.PurchaseOrder.ReferenceName)
+                </div>
+                <div class="col-md-2">
+                    @Html.Label("Purchase Date")
+                    @Html.TextBoxFor(c => c.PurchaseOrder.PurchaseDate)
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <fieldset>
+
+                    <table class="table">
+                        <tr>
+                            <th>Product Id</th>
+                            <th>Unit Price</th>
+                            <th>Qty</th>
+                            <th>Total Price</th>
+                            <th>Warranty</th>
+                            <th>Serial</th>
+                            <th>Description</th>
+                        </tr>
+
+                        @foreach (var p in ViewBag.PurchaseDetail)
+                        {
+                            <tr>
+                                <td> @p.Id</td>
+                                <td> @p.UnitPrice</td>
+                                <td> @p.Qty</td>
+                                <td> @p.TotalPrice</td>
+                                <td> @p.WarrantyPeriod</td>
+                                <td> @p.Serial</td>
+                                <td> @p.Description</td>
+
+                                <td><input type="submit" formaction="/PurchaseOrderDetail/Edit/@p.Id" value="Edit" class="btn-primary" /></td>
+                                <td><input type="submit" formaction="/PurchaseOrderDetail/Delete/@p.Id" value="Delete" class="btn-danger" /></td>
+                            </tr>
+                        }
+                    </table>
+                </fieldset>
+            </div>
+           
+            <div class="col-md-12">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        }
+
+
+        @using (Html.BeginForm("CreatePurchaseOrder", "PurchaseOrderModel"))
+        {
+        <div class="col-md-12">
+            <fieldset>
+                <div class="col-md-12">
+
+                    <div class="col-md-2">
+
+                        @Html.Label("Product List")
+                        @Html.DropDownList("ProductId", new SelectList(ViewBag.Product, "Id", "Name"), "Select Product", new { @class = "form-control" })
+
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Label("Unit Price")
+                        @Html.TextBoxFor(c => c.PurchaseOrderDetail.UnitPrice, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-1">
+                        @Html.Label("Qty")
+                        @Html.TextBoxFor(c => c.PurchaseOrderDetail.Qty, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Label("Total Price")
+                        @Html.TextBoxFor(c => c.PurchaseOrderDetail.TotalPrice, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-1">
+                        @Html.Label("Warranty")
+                        @Html.TextBoxFor(c => c.PurchaseOrderDetail.WarrantyPeriod, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-1">
+                        @Html.Label("Serial")
+                        @Html.TextBoxFor(c => c.PurchaseOrderDetail.Serial, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Label("Description")
+                        @Html.TextAreaFor(c => c.PurchaseOrderDetail.Description, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-1">
+                        @Html.Label("Op")
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        }
+   
+        
+     </div>
+</div>
+

@@ -17,5 +17,6 @@ namespace AssetTracker.Core.Context
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
     }
 }
