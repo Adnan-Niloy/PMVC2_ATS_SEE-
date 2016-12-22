@@ -10,6 +10,7 @@ namespace AssetTracker.Core.Models
     public class Vendor
     {
         public int Id { get; set; }
+        [Required(ErrorMessage ="Name is Required")]
         public string Name { get; set; }
         [StringLength(int.MaxValue,MinimumLength = 10)]
         public string Address { get; set; }

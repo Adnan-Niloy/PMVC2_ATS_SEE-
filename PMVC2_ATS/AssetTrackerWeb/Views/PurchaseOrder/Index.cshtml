@@ -1,0 +1,186 @@
+﻿@model AssetTracker.Core.Models.PurchaseOrder
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron">
+    <h2>Purchase</h2>
+</div>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { onsubmit = "return checkorder();" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-12">
+        <div class="col-md-2">
+            @Html.Label("Vendor")
+            @Html.DropDownList("VendorId", new SelectList(ViewBag.Vendor, "Id", "Name"), "Select Vendor", new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Reference")
+            @Html.TextBoxFor(c => c.ReferenceName ,new { @class = "from-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Purchase Date")
+            @Html.TextBoxFor(c => c.PurchaseDate , new { @class= "from-control" })
+        </div>
+    </div>
+    <hr />
+    <div class="col-md-12">
+
+            <div class="col-md-2">
+                
+                @Html.Label("Product List")
+                @Html.DropDownList("ProductId", new SelectList(ViewBag.Product, "Id", "Name"), "Select Product", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Unit Price")
+                <input class="form-control" type="text" id="UnitPrice" name="UnitPrice" onkeyup="UpdateInfo()" />
+            </div>
+            <div class="col-md-1">
+                @Html.Label("Qty")
+                <input class="form-control" type="text" id="Qty" name="Qty" onkeyup="UpdateInfo()" />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Total Price")
+                <input class="form-control" type="text" id="TotalPrice" name="TotalPrice" />
+            </div>
+            <div class="col-md-1">
+                @Html.Label("Warranty")
+                <input class="form-control" type="text" id="Warranty" name="Warranty" />
+            </div>
+            <div class="col-md-1">
+                @Html.Label("Serial")
+                <input class="form-control" type="text" id="Serial" name="Serial" />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Description")
+                <input class="form-control" type="text" id="Description" name="Description" />
+            </div>
+            <div class="col-md-1">
+                <div>&nbsp;</div>
+                <div class="editor-field">
+                    <input type="button" id="btnAddDetails" onclick="AddDetails();" value="Add Details" class="btn btn-primary" />
+                </div>
+                
+            </div>
+    </div>
+    <hr />
+    <div class="col-md-12"> <label class="bg-info">&nbsp;&nbsp;Purchase Order Line</label></div>
+    <div class="col-md-12">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Unit Price</th>
+                    <th>Qty</th>
+                    <th>Total Price</th>
+                    <th>Warranty</th>
+                    <th>Serial</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="tblPurchaseDetails">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6 pull-right">
+        <input type="text" id="SubTotal" name="SubTotal" class="form-control pull-right" value="0" />
+        <label class="lead pull-right">Sub Total</label>
+    </div>
+    <br />
+    <hr />
+
+    <div class="col-md-12">
+        <input class="btn btn-success pull-right" type="submit" value="Submit" />
+    </div>
+}
+
+
+<script type="text/javascript">
+
+    function AddDetails()
+    {
+        if(document.getElementById('ProductId').value.trim() == "")
+        {
+            alert("Product should not be empty");
+            return false;
+        }
+        if(document.getElementById('UnitPrice').value.trim() == "")
+        {
+            alert("Price should not be empty");
+            return false;
+        }
+        if(document.getElementById('Qty').value.trim() == "")
+        {
+            alert("Qty should not be empty");
+            return false;
+        }
+
+        @*@{ Model.PurchaseOrderDetails.Add(new AssetTracker.Core.Models.PurchaseOrderDetail()); }*@
+
+        var index = $("#tblPurchaseDetails").children("tr").length;
+        var product = document.getElementById("ProductId").value;
+        var unitPrice = document.getElementById("UnitPrice").value;
+        var qty = document.getElementById("Qty").value;
+        var totalPrice = document.getElementById("TotalPrice").value;
+        var warranty = document.getElementById("Warranty").value;
+        var serial = document.getElementById("Serial").value;
+        var description = document.getElementById("Description").value;
+
+        var indexcell = "<td style='display:none'><input name='Details.Index' type='hidden' value='" + index + "' /></td>";
+      //  var titleCell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Books_" + index + "__Title' name='Books[" + index + "].Title' type='text' value='" + name + "' /></td>";
+        var productcell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Product' name = 'Details[" + index + "].Product' type = 'text' value = '" + product + "'/></td>";
+        var pricecell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__UnitPrice' name = 'Details[" + index + "].UnitPrice' type = 'text' value = '" + unitPrice + "' /></td>";
+        var qtycell     = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Qty'  name = 'Details[" + index + "].Qty' type = 'text' value = '"+ qty +"'/></td>";
+        var tpricecell  = "<td><input class='itemTotal form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__TotalPrice' name = 'Details[" + index + "].TotalPrice' type='text' value = '" + totalPrice + "'  /></td>";
+        var warrantycell= "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Warranty' name = 'Details[" + index + "].Warranty' type='text' value='" + warranty + "'  /></td>";
+        var serialcell  = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Serial' name = 'Details[" + index + "].Serial' type='text' value='"+serial+"' />  </td>";
+        var descell     = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Description' name = 'Details[" + index + "].Description' type='text' value='" + description + "' />  </td>";
+        var removeCell = "<td><input class='btn btn-danger' id='btnDelDetails' type='button' value='Remove' onclick='removeRow(" + index + ");' /></td>";
+
+        var row = "<tr id='Details_Row_"+index+"'>"+ indexcell + productcell+ pricecell + qtycell + tpricecell + warrantycell+ serialcell + descell + removeCell + "</tr>";
+        $("#tblPurchaseDetails").append(row);
+        UpdateSubTotal();
+    }
+
+    function removeRow(id) {
+        var controlToBeRemoved = "#Details_Row_" + id;
+        $(controlToBeRemoved).remove();
+        UpdateSubTotal();
+    }
+
+</script>
+
+
+<script language="javascript" type="text/javascript">
+        
+        function UpdateSubTotal() {
+
+            var total = 0;
+            var elements = document.getElementsByClassName("itemTotal");
+            for (var i = 0; i < elements.length; i++) {
+                total = Number(Number(total) + Number(elements[i].value));
+            }
+
+            $('#SubTotal').val(total);
+        }
+</script>
+
+<script language="javascript" type="text/javascript">
+
+        function UpdateInfo() {
+            var price = $('#UnitPrice').val();
+            var quantity = $('#Qty').val();
+
+            var total = price * quantity;
+
+            $('#TotalPrice').val(total);
+        }
+</script>
+
+    
+

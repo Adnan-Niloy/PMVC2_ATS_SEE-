@@ -74,6 +74,14 @@
     <Compile Include="Migrations\201612210627313_AssetDbContext1.Designer.cs">
       <DependentUpon>201612210627313_AssetDbContext1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612221042043_AssetDbContext2.cs" />
+    <Compile Include="Migrations\201612221042043_AssetDbContext2.Designer.cs">
+      <DependentUpon>201612221042043_AssetDbContext2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612221050335_AssetDbContext3.cs" />
+    <Compile Include="Migrations\201612221050335_AssetDbContext3.Designer.cs">
+      <DependentUpon>201612221050335_AssetDbContext3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Department.cs" />
@@ -101,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612210627313_AssetDbContext1.resx">
       <DependentUpon>201612210627313_AssetDbContext1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612221042043_AssetDbContext2.resx">
+      <DependentUpon>201612221042043_AssetDbContext2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612221050335_AssetDbContext3.resx">
+      <DependentUpon>201612221050335_AssetDbContext3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

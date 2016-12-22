@@ -227,6 +227,11 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_ajax.js" />
     <Content Include="Views\Shared\Web.config" />
@@ -237,6 +242,7 @@
     <Content Include="Views\Shared\_PurchaseOrderDetailList2.cshtml" />
     <Content Include="Views\PurchaseOrderModel\_PurchaseOrderDetail.cshtml" />
     <Content Include="Views\PurchaseOrderModel\_PurchaseOrderDetailList.cshtml" />
+    <Content Include="Views\PurchaseOrder\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

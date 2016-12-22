@@ -9,6 +9,12 @@ namespace AssetTracker.Core.Models
 {
     public class PurchaseOrder
     {
+
+        public PurchaseOrder()
+        {
+            PurchaseOrderDetails = new List<PurchaseOrderDetail>();
+        }
+
         [Key]
         public int Id { get; set; }
         public string ReferenceName { get; set; }
@@ -20,7 +26,9 @@ namespace AssetTracker.Core.Models
         public virtual Vendor Vendor { get; set; }
         public virtual Employee Employee { get; set; }
 
-        public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
+        public List<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
+
+        //public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
         //public virtual ICollection<PurchaseFile> PurchaseFiles { get; set; }
     }
 }

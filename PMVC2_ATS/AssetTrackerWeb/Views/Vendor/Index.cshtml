@@ -35,15 +35,19 @@
 
                         @Html.LabelFor(c => c.Name)
                         @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Name , "", new { @class = "text-danger" })
 
                         @Html.LabelFor(c => c.Contact)
                         @Html.TextAreaFor(c => c.Contact, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Contact ,"", new { @class = "text-danger" })
 
                         @Html.LabelFor(c => c.Email)
                         @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email , "", new { @class = "text-danger" })
 
                         @Html.LabelFor(c => c.Address)
                         @Html.TextAreaFor(c => c.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Address ,"", new { @class = "text-danger" })
 
                         @Html.LabelFor(c => c.Status)
                         @Html.CheckBoxFor(c => c.Status)
