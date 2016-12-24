@@ -8,7 +8,7 @@
 </div>
 
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { onsubmit = "return checkorder();" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { onsubmit = "" }))
 {
     @Html.ValidationSummary(true)
 
@@ -123,7 +123,7 @@
         @*@{ Model.PurchaseOrderDetails.Add(new AssetTracker.Core.Models.PurchaseOrderDetail()); }*@
 
         var index = $("#tblPurchaseDetails").children("tr").length;
-        var product = document.getElementById("ProductId").value;
+        var product = document.getElementById("ProductId").value; alert(product);
         var unitPrice = document.getElementById("UnitPrice").value;
         var qty = document.getElementById("Qty").value;
         var totalPrice = document.getElementById("TotalPrice").value;
@@ -133,13 +133,13 @@
 
         var indexcell = "<td style='display:none'><input name='Details.Index' type='hidden' value='" + index + "' /></td>";
       //  var titleCell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Books_" + index + "__Title' name='Books[" + index + "].Title' type='text' value='" + name + "' /></td>";
-        var productcell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Product' name = 'Details[" + index + "].Product' type = 'text' value = '" + product + "'/></td>";
-        var pricecell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__UnitPrice' name = 'Details[" + index + "].UnitPrice' type = 'text' value = '" + unitPrice + "' /></td>";
-        var qtycell     = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Qty'  name = 'Details[" + index + "].Qty' type = 'text' value = '"+ qty +"'/></td>";
-        var tpricecell  = "<td><input class='itemTotal form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__TotalPrice' name = 'Details[" + index + "].TotalPrice' type='text' value = '" + totalPrice + "'  /></td>";
-        var warrantycell= "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Warranty' name = 'Details[" + index + "].Warranty' type='text' value='" + warranty + "'  /></td>";
-        var serialcell  = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Serial' name = 'Details[" + index + "].Serial' type='text' value='"+serial+"' />  </td>";
-        var descell     = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Description' name = 'Details[" + index + "].Description' type='text' value='" + description + "' />  </td>";
+        var productcell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Product' name = 'PurchaseOrderDetails[" + index + "].Id' type = 'text' value = '" + product + "'/></td>";
+        var pricecell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__UnitPrice' name = 'PurchaseOrderDetails[" + index + "].UnitPrice' type = 'text' value = '" + unitPrice + "' /></td>";
+        var qtycell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Qty'  name = 'PurchaseOrderDetails[" + index + "].Qty' type = 'text' value = '" + qty + "'/></td>";
+        var tpricecell = "<td><input class='itemTotal form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__TotalPrice' name = 'PurchaseOrderDetails[" + index + "].TotalPrice' type='text' value = '" + totalPrice + "'  /></td>";
+        var warrantycell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Warranty' name = 'PurchaseOrderDetails[" + index + "].Warranty' type='text' value='" + warranty + "'  /></td>";
+        var serialcell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Serial' name = 'PurchaseOrderDetails[" + index + "].Serial' type='text' value='" + serial + "' />  </td>";
+        var descell = "<td><input class='form-control' style='border: 0px solid #cccccc;' id='Details_" + index + "__Description' name = 'PurchaseOrderDetails[" + index + "].Description' type='text' value='" + description + "' />  </td>";
         var removeCell = "<td><input class='btn btn-danger' id='btnDelDetails' type='button' value='Remove' onclick='removeRow(" + index + ");' /></td>";
 
         var row = "<tr id='Details_Row_"+index+"'>"+ indexcell + productcell+ pricecell + qtycell + tpricecell + warrantycell+ serialcell + descell + removeCell + "</tr>";

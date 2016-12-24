@@ -55,6 +55,7 @@
     <Compile Include="BLL\OrganizationBranchManager.cs" />
     <Compile Include="BLL\OrganizationManager.cs" />
     <Compile Include="BLL\ProductManager.cs" />
+    <Compile Include="BLL\PurchaseOrderManager.cs" />
     <Compile Include="BLL\SubCategoryManager.cs" />
     <Compile Include="BLL\VendorManager.cs" />
     <Compile Include="Context\AssetDBContext.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="DAL\OrganizationBranchRepository.cs" />
     <Compile Include="DAL\OrganizationRepository.cs" />
     <Compile Include="DAL\ProductRepository.cs" />
+    <Compile Include="DAL\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\SubCategoryRepository.cs" />
     <Compile Include="DAL\VendorRepository.cs" />
     <Compile Include="Migrations\201612200332026_AssetDbContext.cs" />
