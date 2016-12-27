@@ -1,40 +1,40 @@
 ﻿using AssetTracker.Core.Context;
 using AssetTracker.Core.Models;
+using AssetTracker.Core.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using AssetTracker.Core.Models.Interfaces.DAL;
+using AssetTracker.Core.DAL.BaseDAL;
+
+
 
 namespace AssetTracker.Core.DAL
 {
-    public class OrganizationRepository : IDisposable
+    public class OrganizationRepository : BaseRepository<Organization>, IOrganizationRepository, IDisposable
     {
-        private readonly AssetDbContext _context;
-
-        public OrganizationRepository()
+        public AssetDbContext Context
         {
-            _context = new AssetDbContext();
+            get
+            {
+                return _context as AssetDbContext;
+            }
+        }
+
+        public OrganizationRepository(DbContext db) : base(new AssetDbContext())
+        {
+            base._context = db;
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            Context.Dispose();
         }
 
-        public bool Add(Organization organization)
+        public ICollection<Organization> SearchByCriteria()
         {
-            _context.Organizations.Add(organization);
-            var rowAffected = _context.SaveChanges();
-
-            return rowAffected > 0;
+            throw new NotImplementedException();
         }
-
-        public IList<Organization> GetAll()
-        {
-            var organizations = _context.Organizations.Include(c => c.OrganizationBranches).ToList();
-            return organizations;
-        }
-
-
     }
 }
