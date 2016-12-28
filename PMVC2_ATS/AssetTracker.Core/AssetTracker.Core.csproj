@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="BLL\CategoryManager.cs" />
     <Compile Include="BLL\GeneralCategoryManager.cs" />
-    <Compile Include="BLL\BaseBLL\IManager.cs" />
     <Compile Include="BLL\ModelRadioManager.cs" />
     <Compile Include="BLL\OrganizationBranchManager.cs" />
     <Compile Include="BLL\OrganizationManager.cs" />
@@ -65,7 +64,6 @@
     <Compile Include="DAL\GeneralCategoryRepository.cs" />
     <Compile Include="DAL\ModelRadioRepository.cs" />
     <Compile Include="DAL\OrganizationBranchRepository.cs" />
-    <Compile Include="DAL\OrganizationDBRepository.cs" />
     <Compile Include="DAL\OrganizationRepository.cs" />
     <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="DAL\PurchaseOrderRepository.cs" />
@@ -92,6 +90,7 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\GeneralCategory.cs" />
+    <Compile Include="Models\Interfaces\BaseInterface\IManager.cs" />
     <Compile Include="Models\Interfaces\BaseInterface\IRepository.cs" />
     <Compile Include="Models\Interfaces\BLL\IOrganizationManager.cs" />
     <Compile Include="Models\Interfaces\DAL\IOrganizationRepository.cs" />

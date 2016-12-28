@@ -12,10 +12,12 @@ namespace AssetTracker.Core.BLL
     public class OrganizationManager : IOrganizationManager
     {
         private readonly IOrganizationRepository _repository;
+        private readonly IOrganizationManager _manager;
 
-        public OrganizationManager(IOrganizationRepository repository)
+        public OrganizationManager(IOrganizationRepository repository,IOrganizationManager manager)
         {
             _repository = repository;
+            _manager = manager;
         }
 
         public bool Add(Organization organization)
@@ -40,6 +42,11 @@ namespace AssetTracker.Core.BLL
         }
 
         public bool Update(Organization entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<Organization> SearchByCriteria()
         {
             throw new NotImplementedException();
         }

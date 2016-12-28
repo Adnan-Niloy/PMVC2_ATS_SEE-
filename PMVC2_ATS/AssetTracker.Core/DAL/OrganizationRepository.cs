@@ -10,6 +10,7 @@ using AssetTracker.Core.DAL.BaseDAL;
 
 
 
+
 namespace AssetTracker.Core.DAL
 {
     public class OrganizationRepository : BaseRepository<Organization>, IOrganizationRepository, IDisposable

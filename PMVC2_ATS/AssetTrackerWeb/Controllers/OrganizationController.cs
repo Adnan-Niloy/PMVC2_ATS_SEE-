@@ -1,12 +1,18 @@
 ﻿using AssetTracker.Core.BLL;
 using AssetTracker.Core.Models;
 using System.Web.Mvc;
+using AssetTracker.Core.Models.Interfaces.BLL;
 
 namespace AssetTrackerWeb.Controllers
 {
     public class OrganizationController : Controller
     {
-        private readonly OrganizationManager _manager = new OrganizationManager();
+        public  IOrganizationManager _manager;
+
+        public  OrganizationController(IOrganizationManager manager)
+        {
+            _manager = manager;
+        }
 
         public ActionResult Entry()
         {

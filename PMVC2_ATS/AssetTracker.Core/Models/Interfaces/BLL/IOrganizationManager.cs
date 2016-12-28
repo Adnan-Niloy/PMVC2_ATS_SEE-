@@ -9,6 +9,6 @@ namespace AssetTracker.Core.Models.Interfaces.BLL
 {
     public interface IOrganizationManager: IManager<Organization>
     {
-        
+        ICollection<Organization> SearchByCriteria();
     }
 }
