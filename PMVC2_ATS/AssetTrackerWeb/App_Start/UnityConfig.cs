@@ -43,8 +43,9 @@ namespace AssetTrackerWeb.App_Start
 
             // TODO: Register your types here
             container.RegisterType<IOrganizationManager,OrganizationManager>();
-
             container.RegisterType<IOrganizationRepository, OrganizationRepository>();
+            container.RegisterType<IOrganizationBranchManager, OrganizationBranchManager>();
+            container.RegisterType<IOrganizationBranchRepository, OrganizationBranchRepository>();
 
             container.RegisterType<DbContext,AssetDbContext>();
         }

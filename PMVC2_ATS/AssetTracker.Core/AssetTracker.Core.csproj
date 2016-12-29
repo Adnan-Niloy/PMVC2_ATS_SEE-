@@ -92,7 +92,9 @@
     <Compile Include="Models\GeneralCategory.cs" />
     <Compile Include="Models\Interfaces\BaseInterface\IManager.cs" />
     <Compile Include="Models\Interfaces\BaseInterface\IRepository.cs" />
+    <Compile Include="Models\Interfaces\BLL\IOrganizationBranchManager.cs" />
     <Compile Include="Models\Interfaces\BLL\IOrganizationManager.cs" />
+    <Compile Include="Models\Interfaces\DAL\IOrganizationBranchRepository.cs" />
     <Compile Include="Models\Interfaces\DAL\IOrganizationRepository.cs" />
     <Compile Include="Models\ModelForRadio.cs" />
     <Compile Include="Models\Organization.cs" />

@@ -7,7 +7,7 @@ namespace AssetTrackerWeb.ViewModels
     {
 
         public OrganizationBranch OrganizationBranch { get; set; }
-        public ICollection<Organization> Organizations { get; set; }
+        virtual public ICollection<Organization> Organizations { get; set; }
 
     }
 }

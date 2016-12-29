@@ -12,12 +12,10 @@ namespace AssetTracker.Core.BLL
     public class OrganizationManager : IOrganizationManager
     {
         private readonly IOrganizationRepository _repository;
-        private readonly IOrganizationManager _manager;
 
-        public OrganizationManager(IOrganizationRepository repository,IOrganizationManager manager)
+        public OrganizationManager(IOrganizationRepository repository)
         {
             _repository = repository;
-            _manager = manager;
         }
 
         public bool Add(Organization organization)

@@ -292,8 +292,6 @@
     <Content Include="Views\OrganizationBranch\Entry.cshtml" />
     <Content Include="Views\Organization\GetAll.cshtml" />
     <Content Include="web.config" />
-    <Content Include="Views\Shared\_PurchaseOrderDetail1.cshtml" />
-    <Content Include="Views\Shared\_PurchaseOrderDetailList2.cshtml" />
     <Content Include="Views\PurchaseOrderModel\_PurchaseOrderDetail.cshtml" />
     <Content Include="Views\PurchaseOrderModel\_PurchaseOrderDetailList.cshtml" />
     <Content Include="Views\PurchaseOrder\Index.cshtml" />

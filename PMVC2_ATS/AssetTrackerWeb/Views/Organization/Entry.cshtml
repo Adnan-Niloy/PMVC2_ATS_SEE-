@@ -1,6 +1,6 @@
 ﻿@model AssetTracker.Core.Models.Organization
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -15,10 +15,10 @@
 </head>
 <body>
 <div class="jumbotron"></div>
-<div>
+<div class="col-md-12">
     @using (Html.BeginForm("Entry", "Organization", new {@class = "form-inline"}))
     {        
-            <div>
+            <div class="col-md-4">
                 <div class="form-group">
                     @Html.LabelFor(m => m.Name)
                     @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
@@ -33,11 +33,45 @@
                     @Html.LabelFor(m => m.Location)
                     @Html.TextBoxFor(m => m.Location, new {@class = "form-control"})
                 </div>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
+             
+           
+             <div class="col-md-8">
 
-        <button type="submit" class="btn btn-primary">Save</button>
+                 <table class="table table-hover">
+                     <thead>
+                         <tr>
+                             <th>Organization Name</th>
+                             <th>Organization Code</th>
+                             <th>Organization Location</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         @foreach (var item in ViewBag.Organization)
+                         {
+                             <tr>
+                                 <td>@item.Name</td>
+                                 <td>@item.Code</td>
+                                 <td>@item.Location</td>
+                             </tr>
+                         }
+                     </tbody>
+                 </table>
+             </div>
     }
    
 </div>
+
+    <script src="~/Asset/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="~/Asset/js/jquery-1.12.1.min.js"></script>
+    <!-- jQuery REVOLUTION Slider -->
+    <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="~/Asset/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <script src="~/Asset/js/bootstrap.min.js"></script>
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

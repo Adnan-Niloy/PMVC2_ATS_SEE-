@@ -36,8 +36,6 @@ namespace AssetTracker.Core.DAL.BaseDAL
 
         public ICollection<T> Get(Expression<Func<T, bool>> predicate)
         {
-
-
             return Table.Where(predicate).ToList();
         }
 
@@ -53,6 +51,7 @@ namespace AssetTracker.Core.DAL.BaseDAL
 
         public bool Update(T entity)
         {
+
             Table.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
             return _context.SaveChanges() > 0;

@@ -1,28 +1,31 @@
 ﻿using AssetTracker.Core.Context;
+using AssetTracker.Core.DAL.BaseDAL;
 using AssetTracker.Core.Models;
+using AssetTracker.Core.Models.Interfaces.DAL;
 using System;
+using System.Data.Entity;
 
 namespace AssetTracker.Core.DAL
 {
-    public class OrganizationBranchRepository : IDisposable
+    public class OrganizationBranchRepository : BaseRepository<OrganizationBranch>, IOrganizationBranchRepository, IDisposable
     {
-        private readonly AssetDbContext _context;
-
-        public OrganizationBranchRepository()
+        
+        public OrganizationBranchRepository(DbContext db) : base(new AssetDbContext())
         {
-            _context = new AssetDbContext();
+            base._context = db;
         }
+
+        public AssetDbContext Context
+        {
+            get
+            {
+                return _context as AssetDbContext;
+            } 
+        }
+
         public void Dispose()
         {
-            _context.Dispose();
-        }
-
-        public bool Add(OrganizationBranch organizationBranch)
-        {
-            _context.OrganizationBranches.Add(organizationBranch);
-            var rowAffected = _context.SaveChanges();
-
-            return rowAffected > 0;
+            Context.Dispose();
         }
     }
 }

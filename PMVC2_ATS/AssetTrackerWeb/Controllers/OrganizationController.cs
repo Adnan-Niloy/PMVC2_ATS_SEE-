@@ -2,6 +2,8 @@
 using AssetTracker.Core.Models;
 using System.Web.Mvc;
 using AssetTracker.Core.Models.Interfaces.BLL;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace AssetTrackerWeb.Controllers
 {
@@ -17,6 +19,7 @@ namespace AssetTrackerWeb.Controllers
         public ActionResult Entry()
         {
             var organization = new Organization();
+            ViewBag.Organization = GetAll();
             return View(organization);
         }
 
@@ -33,10 +36,10 @@ namespace AssetTrackerWeb.Controllers
             return RedirectToAction("Entry", "Organization");
         }
 
-        public ActionResult GetAll()
+        public List<Organization> GetAll()
         {
-            var organizations = _manager.GetAll();
-            return View(organizations);
+            List<Organization> organizations = _manager.GetAll().ToList();
+            return organizations;
         }
     }
 }
